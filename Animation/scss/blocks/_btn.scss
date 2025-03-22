@@ -1,0 +1,67 @@
+.btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  background-color: $color-light-green;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color $transition-300;
+  
+
+  .form-order--success &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: $color-light-green;
+    border-radius: 8px;
+    animation: change-bg 0.7s 0.4s forwards;
+  }
+
+  &[disabled] {
+    color: rgba(0, 0, 0, 0.4);
+    background-color: $color-white;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: $color-pastel-green;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    pointer-events: none;
+    
+    .form-order--success & {
+      animation: fadeOutDown $transition-300 forwards;
+    }
+  }
+}
+
+@keyframes fadeOutDown {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  }
+
+}
+
+ @keyframes change-bg {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform:scale(10, 20);
+  }
+ }
+
