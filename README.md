@@ -6,7 +6,7 @@
 
 ## Установка
 
-1.  Склонируйте репозиторий: https://github.com/Dairan99/Final-JS
+1.  Склонируйте репозиторий: https://github.com/Dairan99/Animation
 2.  Перейдите в директорию проекта: `Animation`
 
 ## Использование
