@@ -374,6 +374,7 @@ a {
   margin: 0 auto;
   padding: 0 20px;
   width: 100%;
+  min-width: 1440px;
 }
 .container--feedback {
   max-width: 1380px;
