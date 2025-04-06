@@ -1,0 +1,215 @@
+.product-card {
+  position: relative;
+  background-color: $color-white-15;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  min-height: 715px;
+  padding: 24px 40px 40px;
+  $root: &;
+  overflow: hidden;
+
+  &--green {
+    #{$root}__title-accent {
+      color: $color-light-green;
+    }
+
+    #{$root}__skills-value {
+      background-color: $color-light-green;
+    }
+  }
+
+  &__top {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__info {
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid $color-white;
+    border-radius: 14px;
+    color: $color-white;
+    cursor: pointer;
+    display: flex;
+    font-size: 14px;
+    gap: 8px;
+    line-height: 20px;
+    padding: 4px 16px;
+    transition: color $transition-300, border-color $transition-300;
+
+    &:hover,
+    &:focus-visible {
+      border-color: $color-light-green;
+      color: $color-light-green;
+    }
+  }
+
+  &__text {
+    padding: 16px;
+    font-size: 22px;
+    font-family: inherit;
+    font-weight: 700;
+    line-height: 32px;
+    color: $color-black;
+
+    .form-order--success & {
+      animation: fadeOutDown $transition-300 forwards;
+    }
+  }
+
+  &__info-icon {
+    flex-shrink: 0;
+    pointer-events: none;
+  }
+
+  &__title {
+    color: $color-white;
+    font-family: "Press Start 2P", "Arial", sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 28px;
+    margin: 0 0 12px 0;
+  }
+
+  &__about {
+    font-size: 16px;
+    line-height: 22px;
+    margin: 0 0 24px 0;
+  }
+
+  &__skills {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    margin: 0 0 40px 0;
+    padding: 0;
+  }
+
+  &__skills-item {
+    align-items: flex-start;
+    color: $color-white;
+    display: flex;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  &__skills-value {
+    border-radius: 12px;
+    color: $color-black;
+    font-weight: 700;
+    margin-right: 8px;
+    padding: 2px 8px;
+  }
+
+  &__price {
+    display: flex;
+    gap: 34px;
+    justify-content: flex-end;
+    margin-bottom: 40px;
+  }
+
+  &__old-price {
+    font-family: "Press Start 2P", "Arial", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    position: relative;
+
+    &::after {
+      background-color: $color-salmon;
+      content: "";
+      height: 2px;
+      left: -2px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+    }
+  }
+
+  &__new-price {
+    color: $color-white;
+    font-family: "Press Start 2P", "Arial", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  &__agree {
+    color: $color-white-70;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0 0 24px 0;
+  }
+
+  &__success-icon {
+    position: absolute;
+    top: 220px;
+    right: 150px;
+    opacity: 0;
+    transform: translate(-300px, -100px);
+
+    .form-order--success &{
+      animation: fadeInTopLeft 1s 1s cubic-bezier(.33,.69,.31,1.45) forwards;
+      opacity: 1;
+    }
+  }
+
+  &__success-text {
+    position: absolute;
+    font-size: 22px;
+    line-height: 32px;
+    font-weight: 700;
+    top: 356px;
+    right: 67px;
+    color: $color-black;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+    .form-order--success &{
+      animation: fadeOutUp 1.2s 1.7s ease forwards;
+    }
+  }
+
+  &__success-thankyou {
+    position: absolute;
+    font-family: "Press Start 2P", "Arial", sans-serif;
+    width: 260px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 400;
+    top: 420px;
+    right: 80px;
+    color: $color-black;
+    opacity: 0;
+    
+
+    .form-order--success &{
+      opacity: 1;
+      transition: opacity $transition-300 2.4s;
+    }
+  }
+}
+
+@keyframes fadeInTopLeft {
+  0% {
+    transform: translate(-300px, -100px);
+  }
+  100% {
+    transform: translate(0) rotate(360deg);
+  }
+}
+
+@keyframes fadeOutUp {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
